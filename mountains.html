@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Mountains</h1>
+
+<div id="mountains"></div>
+
+<script>
+  const MOUNTAINS = [
+    {name: "Kilimanjaro", height: 5895, place: "Tanzania"},
+    {name: "Everest", height: 8848, place: "Nepal"},
+    {name: "Mount Fuji", height: 3776, place: "Japan"},
+    {name: "Vaalserberg", height: 323, place: "Netherlands"},
+    {name: "Denali", height: 6168, place: "United States"},
+    {name: "Popocatepetl", height: 5465, place: "Mexico"},
+    {name: "Mont Blanc", height: 4808, place: "Italy/France"}
+  ];
+let table = document.createElement("table");
+let topRow = document.createElement("tr")
+let th = document.createElement("th")
+    th.textContent = "name"
+    topRow.appendChild(th)
+
+    let th1 = document.createElement("th")
+    th1.textContent = "height"
+    topRow.appendChild(th1)
+
+    let th2 = document.createElement("th")
+    th2.textContent = "place"
+    topRow.appendChild(th2)
+  // Your code here
+  table.appendChild(topRow)
+  MOUNTAINS.map(mountain => {
+    let tr = document.createElement("tr")
+    for (let prop in mountain) {
+        let data = document.createElement("td")
+        data.textContent = mountain[prop]
+  
+        tr.appendChild(data)
+    }
+    table.appendChild(tr)
+})
+let mountains = document.getElementById("mountains")
+mountains.appendChild(table)
+
+</script>
+</body>
+</html>
+
