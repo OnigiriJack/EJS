@@ -39,8 +39,10 @@ let th = document.createElement("th")
     let tr = document.createElement("tr")
     for (let prop in mountain) {
         let data = document.createElement("td")
+        if (typeof mountain[prop] === "number") {
+          data.style.textAlign = "right"
+        }
         data.textContent = mountain[prop]
-  
         tr.appendChild(data)
     }
     table.appendChild(tr)
