@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orbits</title>
+    <style>
+    body {
+      min-height: 200px;
+      background-color: black;
+      }
+    p {
+        font-size:10px;
+    }
+    img {
+      width:15px;
+      position: absolute;
+    }
+    </style>
+</head>
+<body> 
+<p id="sun" style="position: absolute; top:300px; left:600px;">☀️ </p>
+<img src="imgs/mercury,planet,space,astrology,galaxy,215134.png" id ="mercury" alt="mercury">
+<img src="imgs/venus,planet,space,astrology,system,galaxy,215136.png" id="venus" alt="venus">
+<img src="imgs/earth,planet,space,astrology,galaxy,215129.png" id="earth" alt="earth">
+<img src="imgs/mars,planet,space,astrology,galaxy,215135.png" id="mars" alt="mars">
+<img src="imgs/jupiter,planet,space,astrology,galaxy,215131.png" id="jupiter" alt ="jupiter">
+<img src="imgs/saturn,planet,space,galaxy,astrology,215138.png" id ="saturn" alt="saturn">
+<img src="imgs/neptune,planet,space,astrology,galaxy,215132.png" id ="neptune" alt="neptune">
+<img src="imgs/pluto,planet,space,astrology,galaxy,215133.png" id="pluto" alt="pluto"
+<a href="https://iconscout.com/icon-pack/planets-1" target="_blank">Planets Icon Pack</a> by <a href="https://iconscout.com/contributors/iconika" target="_blank">Iconika Store</a>
+<script>
+  let mercury = document.querySelector("#mercury");
+  let venus = document.querySelector("#venus");
+  let earth = document.querySelector("#earth");
+  let mars = document.querySelector("#mars");
+  
+  let jupiter = document.querySelector("#jupiter");
+  let saturn =document.querySelector("#saturn");
+  let neptune = document.querySelector("#neptune");
+  let pluto = document.querySelector("#pluto");
+
+  let angle = 0;
+  let lastTime = null;
+  function animate(time) {
+    if (lastTime != null) angle += (time - lastTime) * 0.001;
+    lastTime = time;
+    
+    mercury.style.top = (Math.sin(angle * 1.607 ) * 39 + 300) + "px";
+    mercury.style.left = (Math.cos(angle * 1.607) * 39+ 600) + "px";
+
+    venus.style.top = (Math.sin(angle * 1.174 ) * 72 + 300) + "px";
+    venus.style.left = (Math.cos(angle * 1.174 ) * 72 + 600) + "px";
+
+    earth.style.top = (Math.sin(angle)* 100 + 300) + "px";
+    earth.style.left = (Math.cos(angle) * 100 + 600) + "px";
+
+    mars.style.top = (Math.sin(angle * .8) * 150 + 300) + "px";
+    mars.style.left = (Math.cos(angle * .8) * 150 + 600) + "px";
+
+    jupiter.style.top = (Math.sin(angle * .434) * 520 + 300) + "px";
+    jupiter.style.left = (Math.cos(angle * .434) * 520 + 600) + "px";
+
+    saturn.style.top = (Math.sin(angle * .323) * 950 + 300) + "px";
+    saturn.style.left = (Math.cos(angle * .323) * 950 + 600) + "px";
+
+    neptune.style.top = (Math.sin(angle * .228) * 2000 + 300) + "px";
+    neptune.style.left = (Math.cos(angle * .228) * 2000 + 600) + "px";
+
+    pluto.style.top = (Math.sin(angle * .182) * 3000 + 300) + "px";
+    pluto.style.left = (Math.cos(angle * .182) * 3000 + 600) + "px";
+    requestAnimationFrame(animate);
+  }
+  requestAnimationFrame(animate);
+</script>
+</body>
+</html>
