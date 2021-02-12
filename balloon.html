@@ -21,26 +21,23 @@
 <body>
     <div id="container">
         <p id="balloon">🎈</p>
-        <button id="up">⬆️</button>
-        <button id="down">⬇️</button>  
     </div>
 
     <script>
         let balloon = document.getElementById("balloon")
         let size = 10;
         console.log(balloon.style.fontSize)
-        document.getElementById("up").onclick = () => {
-            //let fontNum = balloon.style.fontSize.replace("px", "")
-            size = (size + (size * .1));
-            balloon.style.fontSize =  size+"px"
-            console.log()
-           // let NewNum =(fontNum + (fontNum * .1))
-            //console.log('clicked up ' +NewNum)
-            
-           // balloon.style.fontSize = String((fontNum + (fontNum * .1))) + "px"
-            
-           
-        }
+        window.addEventListener("keydown", event => {
+            if (event.key == "ArrowUp") {
+                size = (size + (size * .1));
+                balloon.style.fontSize =  size+"px"
+            }
+            if (event.key == "ArrowDown") {
+                size = (size - (size * .1));
+                balloon.style.fontSize =  size+"px"
+            }
+        })
+  
     </script>
 </body>
 </html>
