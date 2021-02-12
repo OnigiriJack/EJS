@@ -10,6 +10,9 @@
             align-items: center;
             text-align: center;
         }
+        #balloon {
+            font-size: 10px;
+        }
 
 
     </style>
@@ -23,12 +26,19 @@
     </div>
 
     <script>
-        let balloon =document.getElementById("balloon")
-
+        let balloon = document.getElementById("balloon")
+        let size = 10;
+        console.log(balloon.style.fontSize)
         document.getElementById("up").onclick = () => {
-            let fontNum = Number(balloon.style.fontSize.replace("px", ""))
-            console.log('clicked up ' + fontNum)
-         //   balloon.style.fontSize = balloon.style.fontSize + (balloon.style.fontSize * .1) + "px"
+            //let fontNum = balloon.style.fontSize.replace("px", "")
+            size = (size + (size * .1));
+            balloon.style.fontSize =  size+"px"
+            console.log()
+           // let NewNum =(fontNum + (fontNum * .1))
+            //console.log('clicked up ' +NewNum)
+            
+           // balloon.style.fontSize = String((fontNum + (fontNum * .1))) + "px"
+            
            
         }
     </script>
