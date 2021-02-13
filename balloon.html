@@ -26,8 +26,7 @@
     <script>
         let balloon = document.getElementById("balloon")
         let size = 10;
-        console.log(balloon.style.fontSize)
-
+       
         function inflater(event) {
             if (event.key == "ArrowUp") {
                 size = (size + (size * .1));
@@ -39,10 +38,10 @@
             }
             if (size > 100) {
                 balloon.textContent = "💥";
-                window.removeEventListener("keydown",inflater, false)
+                window.removeEventListener("keydown",inflater)
             }
         }
-        window.addEventListener("keydown",  inflater, false)
+        window.addEventListener("keydown",  inflater)
   
     </script>
 </body>
