@@ -19,8 +19,27 @@
     <title>Document</title>
 </head>
 <body>
+   
+    
     <script>
         // Your code here.
-      </script>  
+        
+        
+        scheduled=null;
+        window.addEventListener("mousemove", (event) => {
+            if (!scheduled) {
+                setTimeout(() => {
+                    document.body.textContent = "mouse at X " +scheduled.pageX + " Y " +scheduled.pageY
+                    let trail = document.createElement("div")
+                    trail.className = "trail"
+                    trail.style.left = scheduled.pageX + "px";
+                    trail.style.top = scheduled.pageY + "px";
+                    document.body.appendChild(trail);
+                    scheduled = null;
+                }, 250)
+            }
+            scheduled =event
+        })
+    </script>  
 </body>
 </html>
