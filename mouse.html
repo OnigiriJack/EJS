@@ -22,45 +22,30 @@
    
     
     <script>
-        // Your code here.
-        function removeAllChildNodes(parent) {
-    while (parent.firstChild) {
-        parent.removeChild(parent.firstChild);
-    }
-}
         let recentLocations = [];
         let id = 1;
-        //scheduled=null;
         window.addEventListener("mousemove", (event) => {
-//removeAllChildNodes(document.body)
-                   // document.body.textContent = "mouse at X " +scheduled.pageX + " Y " +scheduled.pageY
-                    
-                    let location = {x:event.pageX, y:event.pageY, id: id}
-                    recentLocations.push(location)
-                    recentLocations.map(location => { 
+                    let location = {x:event.pageX, y:event.pageY, id: id};
+                    recentLocations.push(location);
+
+                    recentLocations.slice(10).map(location => { 
                         let trail = document.createElement("div");
                         trail.className = "trail";
-                        trail.id = String(location.id)
+                        trail.id = String(location.id);
                         trail.style.left = event.pageX + "px";
                         trail.style.top = event.pageY + "px";
+                        let randomColor = Math.floor(Math.random()*16777215).toString(16);
+                        trail.style.backgroundColor = "#"+randomColor;
                         document.body.appendChild(trail);
                     })
-                    id++
+                    
+                    id++;
                     if (recentLocations.length > 10) {
-                        let dot = recentLocations.shift()
-                        let id = String(dot.id)
-                        let dotDiv = document.getElementById(id) 
-                        dotDiv.style.background= "black"
-                        console.log(dotDiv+ "node to remove")
-                        console.log(recentLocations.length, recentLocations, id)
-                        document.body.removeChild(dotDiv)
-                     
+                        let dot = recentLocations.shift();
+                        let id = String(dot.id);
+                        let dotDiv = document.getElementById(id);
+                        document.body.removeChild(dotDiv);
                     }
-                    
-                    // show ten most recent locatoins
-
-                    
-            
         })
     </script>  
 </body>
