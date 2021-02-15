@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <tab-panel>
+        <div data-tabname="one">Tab one</div>
+        <div data-tabname="two">Tab two</div>
+        <div data-tabname="three">Tab three</div>
+      </tab-panel>
+      <script>
+        function asTabs(node) {
+          let tabs = Array.from(node.children)
+          tabs.map(tab => {
+            console.log(tab.getAttribute("data-tabname"))
+            tab.style.display = "none"
+            let tabButton = document.createElement('button') 
+            tabButton.textContent = tab.getAttribute("data-tabname")
+            tabButton.addEventListener("click", () => {
+                console.log("clicked " + tabButton.textContent )
+                let tabParent = tabs.filter(tab => tab.getAttribute("data-tabname") ==tabButton.textContent)
+                let tabDisplay = tabParent[0].style.display
+                let updatedDisplay = tabDisplay == "none" ? "block" : "none"
+                
+                tabParent[0].style.display = updatedDisplay               
+            })
+            node.appendChild(tabButton)
+          })
+        }
+
+ 
+        
+       
+        
+        asTabs(document.querySelector("tab-panel"));
+      </script>
+</body>
+</html>

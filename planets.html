@@ -51,7 +51,7 @@ transform: translate(-50%, -50%);">☀️ </p>
   let angle = 0;
   let lastTime = null;
   function animate(time) {
-    if (lastTime != null) angle += (time - lastTime) * 0.001;
+    if (lastTime != null) angle += (time - lastTime) * 0.0001;
     lastTime = time;
     
     mercury.style.top = (Math.sin(angle * 1.607 ) * 39/scale + center[0]) + "px";

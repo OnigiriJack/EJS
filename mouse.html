@@ -19,33 +19,35 @@
     <title>Document</title>
 </head>
 <body>
-   
-    
+  <tab-panel>
+    <div data-tabname="one">Tab one</div>
+    <div data-tabname="two">Tab two</div>
+    <div data-tabname="three">Tab three</div>
+  </tab-panel>
+ 
     <script>
         let recentLocations = [];
         let id = 1;
         window.addEventListener("mousemove", (event) => {
-                    let location = {x:event.pageX, y:event.pageY, id: id};
-                    recentLocations.push(location);
-
-                    recentLocations.slice(10).map(location => { 
-                        let trail = document.createElement("div");
-                        trail.className = "trail";
-                        trail.id = String(location.id);
-                        trail.style.left = event.pageX + "px";
-                        trail.style.top = event.pageY + "px";
-                        let randomColor = Math.floor(Math.random()*16777215).toString(16);
-                        trail.style.backgroundColor = "#"+randomColor;
-                        document.body.appendChild(trail);
-                    })
-                    
-                    id++;
-                    if (recentLocations.length > 10) {
-                        let dot = recentLocations.shift();
-                        let id = String(dot.id);
-                        let dotDiv = document.getElementById(id);
-                        document.body.removeChild(dotDiv);
-                    }
+          let location = {x:event.pageX, y:event.pageY, id: id};
+          recentLocations.push(location);
+          recentLocations.slice(10)
+          .map(location => { 
+            let trail = document.createElement("div");
+            trail.className = "trail";
+            trail.id = String(location.id);
+            trail.style.left = event.pageX + "px";
+            trail.style.top = event.pageY + "px";
+            let randomColor = Math.floor(Math.random()*16777215).toString(16);
+            trail.style.backgroundColor = "#"+randomColor;
+            document.body.appendChild(trail)});
+          id++;
+          if (recentLocations.length > 10) {
+            let dot = recentLocations.shift();
+            let id = String(dot.id);
+            let dotDiv = document.getElementById(id);
+            document.body.removeChild(dotDiv);
+          }
         })
     </script>  
 </body>
