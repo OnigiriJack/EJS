@@ -18,28 +18,27 @@
           tabs.map(tab => {
             let tabNum = tab.getAttribute("data-tabname")
             if(tabNum !== "one") tab.style.display = "none"
-            //tab.style.display = "none"
+
             let tabButton = document.createElement('button') 
             tabButton.textContent = tab.getAttribute("data-tabname")
-            if( tabNum == "one") tabButton.style.color = "blue"
+
+            if(tabNum == "one") tabButton.style.color = "blue"
+
             tabButton.addEventListener("click", () => {
                 document.querySelectorAll("button").forEach(button => button.style.color = "black")
-                let selectedTab = tabs.filter(tab => tab.getAttribute("data-tabname") ==tabButton.textContent)
-                let NotSelectedTabs = tabs.filter(tab => tab.getAttribute("data-tabname") !== tabButton.textContent)
-                NotSelectedTabs.map(tab => tab.style.display = "none")
-
-
-                let tabDisplay = selectedTab[0].style.display = "block"
-                tabButton.style.color = "blue"
-    
-               // let updatedDisplay = tabDisplay == "none" ? "block" : "none"
-                
-                //tabParent[0].style.display = updatedDisplay               
+                tabs.forEach(tab => {
+                    if (tab.getAttribute("data-tabname") !== tabButton.textContent) {
+                        tab.style.display = "none"
+                    } else {
+                        tab.style.display = "block"
+                        tabButton.style.color = "blue"
+                    }                
+                })      
             })
             node.appendChild(tabButton)
           })
         }
-
+//ejs way of doing it.
 //         function asTabs(node) {
 //     let tabs = Array.from(node.children).map(node => {
 //       let button = document.createElement("button");
