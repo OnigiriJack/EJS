@@ -43,4 +43,4 @@ const planets = [
 
 
 
-export default { planets }
+export default planets 
