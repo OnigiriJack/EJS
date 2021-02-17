@@ -8,9 +8,19 @@
 </head>
 <body>
   
-    <canvas width= "600" height ="200"> </canvas>
+    <canvas width= "600" height ="200"> 
+
+
+    </canvas>
     <script>
         let cx = document.querySelector("canvas").getContext('2d')
+        cx.fill();
+        cx.beginPath();
+        cx.moveTo(50, 40);
+        cx.lineTo(40, 30);
+        cx.lineTo(30, 30);
+        cx.lineTo(20, 40);
+        cx.fill();
     </script>
 </body>
 </html>
